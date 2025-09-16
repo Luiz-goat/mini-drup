@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+    <link rel="stylesheet" href="style2.css">
+    <style>
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; 
+            margin: 0;
+        }
+
+        main {
+            flex: 1; 
+        }
+
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo site2.png" alt="LA - ARTIGOS ESPORTIVOS" class="logo">
+        <h1>L.A - ARTIGOS ESPORTIVOS</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="produtos.html">PRODUTOS</a></li>
+                <li><a href="servicos.html">SERVIÇOS</a></li>
+                <li><a href="contato.html">CONTATO</a></li>
+                <li><a href="sobre.html">SOBRE</a></li>
+            </ul>
+        </nav>
+        <button id="darkModeToggle">M.E</button>
+    </header>
+    
+    <main>
+        <header>
+            <h1>Entre em Contato</h1>
+        </header>
+
+        <section class="contato">
+            <h2>Informações de Contato</h2>
+            <p><strong>Telefone:</strong> (61) 4002-8922</p>
+            <p><strong>E-mail:</strong> contato@laartigosesportivos.com</p>
+            <p><strong>Endereço:</strong> Avenida Central, Brasília, DF</p>
+        </section>
+
+        <section class="formulario">
+            <h2>Envie uma mensagem</h2>
+            <form action="#" method="post">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© L.A - ARTIGOS ESPORTIVOS.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle') || document.createElement('button');
+            menuToggle.className = 'menu-toggle';
+            menuToggle.innerHTML = '☰';
+            
+            if (!document.querySelector('.menu-toggle')) {
+                document.querySelector('header').prepend(menuToggle);
+            }
+
+            menuToggle.addEventListener('click', function() {
+                const nav = document.querySelector('nav ul');
+                nav.classList.toggle('show-mobile');
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        document.querySelector('nav ul').classList.remove('show-mobile');
+                    }
+                });
+            });
+        });
+
+        const toggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+        }
+
+        toggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+    </script>
+</body>
+</html>

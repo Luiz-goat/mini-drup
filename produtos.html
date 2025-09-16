@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRODUTOS L.A - ARTIGOS ESPORTIVOS</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <header>
+        <img src="logo site2.png" alt="LA - ARTIGOS ESPORTIVOS" class="logo">
+        <h1> L.A - ARTIGOS ESPORTIVOS</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="produtos.html">PRODUTOS</a></li>
+                <li><a href="servicos.html">SERVIÇOS</a></li>
+                <li><a href="contato.html">CONTATO</a></li>
+                <li><a href="sobre.html">SOBRE</a></li>
+            </ul>
+        </nav>
+        <button id="darkModeToggle">M.E</button>
+    </header>
+
+    <main>
+        <h2> CONFIRA NOSSA LINHA DE PRODUTOS </h2>
+
+        <section class="produtos-lista">
+            <div class="produto">
+                <h3>CAMISETA ESPORTIVA</h3>
+                <p>SUPER CONFORTÁVEL LEVE PARA TREINOS.</P>
+                <P>DISPONÍVEL EM VÁRIAS CORES E TAMANHO<P>
+                <p>TM: P, M, G, GG, XG</p>
+                <p> MALHA DRIFT, IPERMEAVEL, ANTI-TRANSPIRANTE.</p>
+                <p><strong>R$ 49,90</strong></p>
+                <img src="camisas.png" alt="Camiseta Esportiva">
+                <button class="botao-comprar">Comprar</button>
+            </div>
+            
+
+
+            <div class="produto">
+                <h3>TÊNIS DE CORRIDA OLIMPIKUS</h3>
+                <p>LEVE RESISTENTE, IDEAL PARA QUEM GOSTA DE CONFORTO.</p>
+                <P>DISPONÍVEL DO 37 AO 44</P>
+                <P>COR: BEGES E SALMÃO COM AMARELO</P>
+                <p><strong>R$ 199,90</strong></p>
+                <img src="tenis4.png" alt="Tênis de Corrida">
+                <button class="botao-comprar">Comprar</button>
+
+            </div>
+
+            <div class="produto">
+                <h3>BOLA DE BASQUETE PROFISSIONAL </h3>
+                <p>BOLA JORDAN DE BASQUETE 100% ORIGINAL.</p>
+                <P>COR: PRETA COM DETALHES VERMELHOS</P>
+                <P>MATERIAL: COURO SINTÉTICO REFORÇADO, MAIOR DURABILIDADE</P>
+                <p><strong>R$ 289,90</strong></p>
+                <img src="bola.png" alt="Bola de Futebol">
+                <button class="botao-comprar">Comprar</button>
+                
+            </div>
+
+            <div class="produto">
+                <h3>MOCHILA ESPORTIVA</h3>
+                <p>MOCHILA GRANDE 4 COMPARTIMENTOS ESPAÇOSA IDEAL PARA QUEM GOSTA  DE UMA AVENTURA ESPORTIVA</p>
+                <P>MATERIAL DE PANO IPERMEÁVEL, DUPLA COSTURA, VOLUMOSA</P>
+                <P>DISPONÍVEL EM VÁRIAS CORES</P>
+                <p><strong>R$ 99,90</strong></p>
+                <img src="mochila.png" alt="Mochila Esportiva">
+                <button class="botao-comprar">Comprar</button>
+
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© LA - ARTIGOS ESPORTIVOS</p>
+    </footer>   
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle') || document.createElement('button');
+    menuToggle.className = 'menu-toggle';
+    menuToggle.innerHTML = '☰';
+    
+    // Insere o botão se não existir
+    if (!document.querySelector('.menu-toggle')) {
+        document.querySelector('header').prepend(menuToggle);
+    }
+
+    // Vincula as abas ao botão
+    menuToggle.addEventListener('click', function() {
+        const nav = document.querySelector('nav ul');
+        nav.classList.toggle('show-mobile');
+    });
+
+    // Fecha o menu ao clicar em uma aba
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                document.querySelector('nav ul').classList.remove('show-mobile');
+            }
+        });
+    });
+});
+    const toggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        body.classList.add('dark-mode');
+    }
+
+    toggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            localStorage.setItem('darkMode', 'disabled');
+        }
+    });
+    
+</script>
+<body>
+</html>

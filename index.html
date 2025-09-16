@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Esportiva - INICIO</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <header>
+        <button class="menu-toggle" aria-label="Abrir menu">☰</button>
+        <img src="logo site2.png" alt="LA - ARTIGOS ESPORTIVOS" class="logo">
+        <h1> L.A - ARTIGOS ESPORTIVOS </h1>
+        <button id="darkModeToggle">M.E</button>
+        
+        <nav>
+            <ul id="navMenu">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="produtos.html">PRODUTOS</a></li>
+                <li><a href="servicos.html">SERVIÇOS</a></li>
+                <li><a href="contato.html">CONTATO</a></li>
+                <li><a href="sobre.html">SOBRE</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="destaque">
+            <h2> SUPER PROMOÇÃO DA SEMANA! </h2>
+            <p>DESCONTOS DE ATÉ <strong>50%</strong> EM TÊNIS ESPORTIVOS! APROVEITE AGORA!</p>
+            <img src="tenis.png" alt="Promoção de tênis esportivos">
+        </section>
+        <section class="produtos-populares">
+            <h2> PRODUTOS EM DESTAQUE </h2>
+            <div class="produto">
+                    <p>CAMISETAS ESPORTIVAS - A PARTIR DE R$49,90</p>
+                    <img src="camisas.png" alt="Camiseta Esportiva">
+            </div>
+            <div class="produto">
+                
+                <p>TÊNIS DE CORRIDA - A PARTIR DE R$199,90</p>
+                <img src="teniscorrida.png" alt="Tênis de Corrida">
+            </div>
+            <div class="produto">
+                
+                <p>MOCHILAS PARA TREINO - A PARTIR DE R$89,90</p>
+                <img src="mochila.png" alt="Mochila Esportiva">
+            </div>
+        </section>
+        <section class="beneficios">
+            <h2>Por que escolher nossa loja? </h2>
+            <ul>
+                <li> Produtos de alta qualidade</li>
+                <li> Frete grátis para compras acima de R$200</li>
+                <li> Atendimento especializado</li>
+                <li> Promoções exclusivas toda semana</li>
+            </ul>
+            <!-- ===== CRUD LISTA ===== -->
+        <section class="lista">
+             <h2>Minha Lista</h2>
+             <input type="text" id="itemInput" placeholder="Digite um item">
+             <button onclick="adicionarItem()">Adicionar</button>
+             <ul id="listaItens"></ul>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>© L.A - ARTIGOS ESPORTIVOS .</p>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Menu toggle functionality
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('show-mobile');
+        });
+
+        // Fecha o menu ao clicar em uma aba (apenas em mobile)
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    navMenu.classList.remove('show-mobile');
+                }
+            });
+        });
+
+        // Dark mode functionality
+        const toggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+        }
+
+        toggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+    });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

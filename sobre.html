@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <header>
+        <img src="logo site2.png" alt="LA - ARTIGOS ESPORTIVOS" class="logo">
+        <h1>Sobre a L.A Artigos Esportivos</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="produtos.html">PRODUTOS</a></li>
+                <li><a href="servicos.html">SERVIÇOS</a></li>
+                <li><a href="contato.html">CONTATO</a></li>
+                <li><a href="sobre.html">SOBRE</a></li>
+            </ul>
+        </nav>
+        <button id="darkModeToggle">M.E</button>
+    </header>
+
+    <main>
+        <section class="sobre">
+            <h2>Nossa História</h2>
+            <p>A LA Artigos Esportivos nasceu em 2015 com a missão de levar produtos esportivos de alta qualidade para atletas e entusiastas do esporte. Criada por Luiz Alves, a empresa surgiu com o desejo de oferecer equipamentos que ajudassem no desempenho e superação dos desafios de cada atleta.</p>
+
+            <p>Inicialmente, a loja era um pequeno comércio em Brasília, focado em futebol e corrida. Com um estoque cuidadosamente selecionado e atendimento especializado, rapidamente se tornou referência na região.</p>
+
+            <p>Com o passar dos anos, a LA expandiu sua variedade de produtos, atendendo modalidades como basquete, vôlei, musculação e esportes radicais. Em 2018, inauguramos nossa primeira loja física e, em 2020, lançamos o e-commerce, permitindo que clientes de todo o Brasil acessassem nossos produtos com facilidade.</p>
+
+            <p>Atualmente, a LA Artigos Esportivos se destaca como referência no mercado esportivo, oferecendo equipamentos modernos e de alto desempenho. Mais do que vender produtos, acreditamos no poder do esporte como ferramenta de transformação.</p>
+
+            <p>Nosso compromisso é proporcionar qualidade, inovação e paixão pelo esporte. Queremos inspirar cada pessoa a superar seus limites e alcançar suas metas.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 - LA Artigos Esportivos.</p>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+        }
+
+        toggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle') || document.createElement('button');
+            menuToggle.className = 'menu-toggle';
+            menuToggle.innerHTML = '☰';
+        
+            if (!document.querySelector('.menu-toggle')) {
+                document.querySelector('header').prepend(menuToggle);
+            }
+
+            menuToggle.addEventListener('click', function() {
+                const nav = document.querySelector('nav ul');
+                nav.classList.toggle('show-mobile');
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        document.querySelector('nav ul').classList.remove('show-mobile');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

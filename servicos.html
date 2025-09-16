@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossos Serviços</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <header>
+        <img src="logo site2.png" alt="LA - ARTIGOS ESPORTIVOS" class="logo">
+        <h1>L.A - ARTIGOS ESPORTIVOS</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="produtos.html">PRODUTOS</a></li>
+                <li><a href="servicos.html">SERVIÇOS</a></li>
+                <li><a href="contato.html">CONTATO</a></li>
+                <li><a href="sobre.html">SOBRE</a></li>
+            </ul>
+        </nav>
+        <button id="darkModeToggle">M.E</button>
+    </header>
+
+    <main>
+        <h1>Nossos Serviços</h1>
+
+        <section class="servicos">
+            <div class="servico">
+                <h2>Consultoria Esportiva</h2>
+                <p>Oferecemos suporte especializado para atletas e entusiastas do esporte.</p>
+            </div>
+            <div class="servico">
+                <h2>Venda de Equipamentos</h2>
+                <p>Temos uma grande variedade de produtos esportivos de alta qualidade.</p>
+            </div>
+            <div class="servico">
+                <h2>Personalização de Materiais</h2>
+                <p>Criação de uniformes personalizados e acessórios exclusivos.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 - L.A Artigos Esportivos.</p>
+    </footer>
+
+    <script>
+        
+        const toggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+        }
+
+        toggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+
+        // Menu responsivo
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle') || document.createElement('button');
+            menuToggle.className = 'menu-toggle';
+            menuToggle.innerHTML = '☰';
+
+            if (!document.querySelector('.menu-toggle')) {
+                document.querySelector('header').prepend(menuToggle);
+            }
+
+            menuToggle.addEventListener('click', function() {
+                const nav = document.querySelector('nav ul');
+                nav.classList.toggle('show-mobile');
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        document.querySelector('nav ul').classList.remove('show-mobile');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
